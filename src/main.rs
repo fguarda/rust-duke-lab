@@ -1,7 +1,17 @@
 fn main() {
-    let mut message= String::from("Name: Felipe Guarda, Weight: ");
-    let mut weight = 85.0;
+  let proceed = false;
+  if proceed {
+    println!("Proceeding");
+  } else {
+    println!("Not proceeding");
+  }
 
-    let kilos= weight / 2.2;
-    println!("{}{}", message, weight);
+  let height = 190;
+  if height < 180 {
+        println!("Tall");
+  } else if height > 170 {
+      println!("Average");
+  } else {
+    println!("Short");
+  }
 }
