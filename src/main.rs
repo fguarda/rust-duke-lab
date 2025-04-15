@@ -1,17 +1,20 @@
 fn main() {
-  let proceed = false;
-  if proceed {
-    println!("Proceeding");
-  } else {
-    println!("Not proceeding");
-  }
-
   let height = 190;
-  if height < 180 {
-        println!("Tall");
-  } else if height > 170 {
-      println!("Average");
+  let height = height - 20;
+
+  let result = if height > 180 {
+        "Tall"
+  } else if height >= 170 {
+      "Average"
   } else {
-    println!("Short");
-  }
+    "Short"
+  };
+
+  println!("Result: {}", result);
+
+  let health = if height < 180 {"good"} else {"unknow"};
+  println!("Health: {}", health);
+
+  // shadowing to a different type
+  let health = if height < 180 {true} else {false};
 }
