@@ -1,20 +1,15 @@
-fn main() {
-  let height = 190;
-  let height = height - 20;
+// using the loop is useful to avoid having to define the condition upfront
+// or if the condition is met in the middle of the loop
+// It is also useful when you want to loop without knowing exactly when to stop
 
-  let result = if height > 180 {
-        "Tall"
-  } else if height >= 170 {
-      "Average"
-  } else {
-    "Short"
-  };
-
-  println!("Result: {}", result);
-
-  let health = if height < 180 {"good"} else {"unknow"};
-  println!("Health: {}", health);
-
-  // shadowing to a different type
-  let health = if height < 180 {true} else {false};
+fn main (){
+  let mut  x =1;
+  //continue looping until x > 5
+  loop  {
+    println!("x is {}", x);
+    x += 1;
+    if x > 5 {
+      break;;
+    }
+  }
 }
