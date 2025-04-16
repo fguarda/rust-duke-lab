@@ -1,15 +1,11 @@
-// using the loop is useful to avoid having to define the condition upfront
-// or if the condition is met in the middle of the loop
-// It is also useful when you want to loop without knowing exactly when to stop
+// There are other conditionals that we can explore in Rust. Like using `if let`
 
-fn main (){
-  let mut  x =1;
-  //continue looping until x > 5
-  loop  {
-    println!("x is {}", x);
-    x += 1;
-    if x > 5 {
-      break;;
-    }
+fn main () {
+  // let mut maybe_number = Some(None);
+  let maybe_number = Some(42);
+  if  let  Some(number) = maybe_number {
+    println!("The number is {}", number);      
+  } else {
+    println!("There is no number")
   }
 }
