@@ -1,16 +1,14 @@
 fn main () {
-  // the for loop using range. Note you can use also `(1..10)` or `(1..=10)` 
-  // for i in 1..=10 {
-  //   println!("i = {}", i);
-  // }   
-
-  // for i in (1..=5).rev() {
-  //   println!("{}", i)
-  // }
-
-  let numbers = vec![1, 2, 3, 4, 5];
-  for n in numbers {
-    println!("{}", n)
+ for i in 1..=10 {
+  if i % 2 == 0 {
+    // Skip even numbers
+    continue;
   }
+  println!("i = {}", i);
+  if i == 7 {
+    // Exit loop when i is 7
+    break;
+  }
+ }
 
 }
