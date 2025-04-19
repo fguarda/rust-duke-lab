@@ -1,14 +1,15 @@
-fn main () {
- for i in 1..=10 {
-  if i % 2 == 0 {
-    // Skip even numbers
-    continue;
-  }
-  println!("i = {}", i);
-  if i == 7 {
-    // Exit loop when i is 7
-    break;
-  }
- }
+use std::io;
 
+// Match control flow
+fn main () {
+  println!("Please enter a greeting:");
+  let mut name = String::new();
+  io::stdin().read_line(&mut name).expect("Failed to read input");
+
+  // use of match expression to pattern match against varible "name"
+  match name.trim()  {
+    "Good Bye" => println!("Sorry to see you go."),
+    "Hello" => println!("Hi, nice to meet you!"),
+    _=> println!("I can't find a  greeting, good bye.")
+  }
 }
