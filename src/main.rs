@@ -1,15 +1,23 @@
-use std::io;
+fn process_numbers (numbers: &[i32]) {
+  // Initialize the sum to zero
+  let mut sum = 0;
 
-// Match control flow
-fn main () {
-  println!("Please enter a greeting:");
-  let mut name = String::new();
-  io::stdin().read_line(&mut name).expect("Failed to read input");
-
-  // use of match expression to pattern match against varible "name"
-  match name.trim()  {
-    "Good Bye" => println!("Sorry to see you go."),
-    "Hello" => println!("Hi, nice to meet you!"),
-    _=> println!("I can't find a  greeting, good bye.")
+  // Iterate over the numbers, adding each one to the sum
+  for number in numbers {
+    sum += number;
   }
+
+  // Print the sum
+  println!("The sum of the numbers is: {}", sum);
+
+  // If the sum is even, print a message
+  if sum % 2 == 0 {
+    println!("The sum is even");
+  } else {
+    println!("The sum is odd");
+  }
+}
+
+fn main () {
+  process_numbers(&[1,2,3]);
 }
