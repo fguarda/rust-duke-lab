@@ -1,23 +1,15 @@
-fn process_numbers (numbers: &[i32]) {
-  // Initialize the sum to zero
-  let mut sum = 0;
+use std::result;
 
-  // Iterate over the numbers, adding each one to the sum
-  for number in numbers {
-    sum += number;
-  }
-
-  // Print the sum
-  println!("The sum of the numbers is: {}", sum);
-
-  // If the sum is even, print a message
-  if sum % 2 == 0 {
-    println!("The sum is even");
-  } else {
-    println!("The sum is odd");
-  }
+fn split_string(s: String, delimiter: char, field: usize) -> String {
+  let parts: Vec<&str> = s.split(delimiter).collect();
+  let result = parts.get(field);
+  // This will notcompile
+  result.expect("oops! something went wrong").to_string()
 }
 
 fn main () {
-  process_numbers(&[1,2,3]);
+  let chunk = split_string("hello,world".to_string(), ',', 1);
+  println!("Split string: {}", chunk);
 }
+
+// The return value()
