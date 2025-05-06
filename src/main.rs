@@ -1,12 +1,20 @@
-fn loop_and_panic(numbers: Vec<i32>) {
-    for num in numbers {
-        if num < 0 {
-            panic!("Negative number found!");
-        }
-        println!("Number: {}", num);
-    }
-}
+use std::fs::File;
+use std::io::{BufRead, BufReader};
 
 fn main() {
-    loop_and_panic(vec![1, 2, 3, 4, -5]);
+    let file = File::open("non_existent_file.txt");
+    let file = match file {
+        Ok(file) => file,
+        Err(error) => match error.kind() {
+            std::io::ErrorKind::NotFound => {
+                panic!("File not found: {}", error)
+            }
+            _ => panic!("File open error: {}", error),
+        },
+    };
+
+    let reader = BufReader::new(file);
+    for line in reader.lines() {
+        println!("{}", line.unwrap());
+    }
 }
